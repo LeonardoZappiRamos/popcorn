@@ -4,5 +4,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('popcorn_api.urls'))
+    path('api/v1/', include('popcorn_api.urls')),
+    path('auth/', include('popcorn_auth.urls'))
 ]
