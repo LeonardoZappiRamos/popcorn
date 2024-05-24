@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "your-popcorn"
+version = "0.1.0"
+description = "A social network for talk aboul your favorite movies"
+authors = ["Leonardo Zappi Ramos <leo.zappi@hotmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django-rest-framework = "^0.1.0"
+Django = "^5.0.6"
+django-filter = "^24.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
