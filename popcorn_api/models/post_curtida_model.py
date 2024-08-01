@@ -1,8 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 from .post_model import Post
-from .usuario_model import Usuario
 
 
 class Curtida(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="backg p-2">
+    {% if request.user.is_authenticated %}
+        <div class="d-flex flex-row gap-2">
+        <div class="d-flex flex-column gap-2 w-75">
+            {% for post in posts %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.titulo}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{post.data_created}}</h6>
+                    <p class="card-text">{{post.conteudo}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="d-flex flex-column gap-2 w-25 align-items-center">
+            <p>Usuario Seguido</p>
+            <lu class="list-group">
+                {% for user in seguindo %}
+                <li class="list-group-item">{{user.usuario_seguido}}</li>
+                {% endfor %}
+            </lu>
+        </div>
+        </div>
+    {% else %}
+        <p>Por favor faça login.</p>
+    {% endif %}
+</div>
+{% endblock %}
