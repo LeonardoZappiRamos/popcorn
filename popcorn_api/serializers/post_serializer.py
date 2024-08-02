@@ -3,14 +3,8 @@ from rest_framework import serializers
 from popcorn_api.models import Post
 
 
-class PostSerializer(serializers.ModelSerializer):    
+class PostSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(source="usuario.username", read_only=True) 
     class Meta:
         model = Post
-        fields = (
-            'id',
-            'usuario',
-            'titulo', 
-            'conteudo',
-            'data_updated', 
-            'data_created'
-            )
+        fields = '__all__'

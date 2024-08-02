@@ -1,10 +1,11 @@
 from rest_framework import serializers
 
 from popcorn_api.models import Seguidor
-from django.contrib.auth.models import User
 
 
 class SeguidorSerializer(serializers.ModelSerializer):
+    usuario_username = serializers.CharField(source="usuario.username")
+    usuario_sequido_username = serializers.CharField(source="usuario_seguido.username")
     class Meta:
         model = Seguidor
-        fields = ['usuario', 'usuario_seguido']
+        fields = '__all__'

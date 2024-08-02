@@ -10,11 +10,8 @@ class PostViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated, )
     
     def get_queryset(self):
-        seguidor = Seguidor.objects.values_list("usuario_seguido", flat=True).filter(usuario=self.request.user)
-        return super().get_queryset().filter(usuario__id__in=seguidor).all() 
+        #seguidor = Seguidor.objects.values_list("usuario_seguido", flat=True).filter(usuario=self.request.user)
+        return super().get_queryset().all() 
     
     def create(self, request, *args, **kwargs):
-        if request.user.id == request.data.get('usuario'):
-            return super().create(request, *args, **kwargs)
-        else:
-            return Response({"message": "Invalid User"}, status=status.HTTP_403_FORBIDDEN)
+        return super().create(request, *args, **kwargs)
