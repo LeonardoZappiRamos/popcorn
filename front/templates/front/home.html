@@ -22,7 +22,10 @@
             <p>Usuario Seguido</p>
             <lu class="list-group">
                 {% for user in seguindo %}
-                <li class="list-group-item">{{user.usuario_sequido_username}}</li>
+                <li class="list-group-item">
+                    {{user.usuario_sequido_username}}     
+                    <a href="{% url 'Unfollow' %}"><i class="bi bi-star-fill"></i></a>
+                </li>
                 {% endfor %}
             </lu>
         </div>
