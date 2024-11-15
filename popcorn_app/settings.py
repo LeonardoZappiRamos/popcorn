@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django_filters',
     'popcorn_auth',
     'popcorn_api',
-    'front'
 ]
 
 MIDDLEWARE = [
