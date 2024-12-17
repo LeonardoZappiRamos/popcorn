@@ -10,4 +10,4 @@ class Post(models.Model):
     data_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ('-data_created',)
+        ordering = ("-data_created",)

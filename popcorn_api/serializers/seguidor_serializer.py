@@ -5,7 +5,13 @@ from popcorn_api.models import Seguidor
 
 class SeguidorSerializer(serializers.ModelSerializer):
     usuario_username = serializers.CharField(source="usuario.username")
-    usuario_sequido_username = serializers.CharField(source="usuario_seguido.username")
+    usuario_seguido_username = serializers.CharField(source="usuario_seguido.username")
+
     class Meta:
         model = Seguidor
-        fields = '__all__'
+        fields = [
+            "usuario",
+            "usuario_username",
+            "usuario_seguido",
+            "usuario_seguido_username",
+        ]

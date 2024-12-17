@@ -1,7 +1,8 @@
-from django.urls import re_path, include
+from django.urls import re_path, include, path
 from rest_framework import routers
-
-from popcorn_api.viewsets import PostViewSet, UserViewSet, SeguidorViewSet
+from rest_framework.authtoken import views
+from django.contrib.auth import views as auth_views
+from popcorn_api.viewsets import UserViewSet, SeguidorViewSet, FeedViewSet, LoginAPIView
 
 
 router = routers.DefaultRouter()
@@ -9,10 +10,12 @@ router = routers.DefaultRouter()
 # Router Registered
 # Exemplo: router.register(r'view_name', Viewname)
 
-router.register(r'posts', PostViewSet, basename='posts')
-router.register(r'users', UserViewSet, basename='users')
-router.register(r'seguidor', SeguidorViewSet, basename='seguidor')
+router.register(r"feed", FeedViewSet, basename="feed")
+router.register(r"users", UserViewSet, basename="users")
+router.register(r"follows", SeguidorViewSet, basename="follows")
 
 urlpatterns = [
-    re_path('api/(?P<version>(v1|v2))/', include(router.urls))
+    re_path("api/", include(router.urls)),
+    path("api-token-auth/", views.obtain_auth_token),
+    path("api/login/", LoginAPIView.as_view()),
 ]

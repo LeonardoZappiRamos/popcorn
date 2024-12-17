@@ -6,8 +6,8 @@ from .post_serializer import PostSerializer
 
 class FeedSerializer(serializers.ModelSerializer):
     posts = PostSerializer(many=True, read_only=True)
-    
+
     class Meta:
         model = User
-        fildes = ['id', 'posts']
+        fildes = ["id", "posts"]
         read_only = True

@@ -12,8 +12,12 @@ Django = "^5.0.6"
 django-filter = "^24.2"
 djangorestframework-simplejwt = "^5.3.1"
 requests = "^2.32.3"
+black = "^24.10.0"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88

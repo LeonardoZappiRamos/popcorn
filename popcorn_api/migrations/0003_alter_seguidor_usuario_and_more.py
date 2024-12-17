@@ -8,19 +8,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('popcorn_api', '0002_alter_seguidor_usuario'),
+        ("popcorn_api", "0002_alter_seguidor_usuario"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='seguidor',
-            name='usuario',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_seguidor', to=settings.AUTH_USER_MODEL),
+            model_name="seguidor",
+            name="usuario",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="user_seguidor",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='seguidor',
-            name='usuario_seguido',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_seguido', to=settings.AUTH_USER_MODEL),
+            model_name="seguidor",
+            name="usuario_seguido",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="user_seguido",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]
