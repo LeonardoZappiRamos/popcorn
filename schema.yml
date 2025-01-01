@@ -1,0 +1,125 @@
+openapi: 3.0.3
+info:
+  title: Popcorn API
+  version: 1.0.0
+  description: I am a baby API
+paths:
+  /api/v1/feed/:
+    get:
+      operationId: api_v1_feed_retrieve
+      description: ViewSet to list the feed and retrieve the news post
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: api_v1_feed_create
+      description: ViewSet to list the feed and retrieve the news post
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          description: No response body
+  /api/v1/feed/{id}/:
+    get:
+      operationId: api_v1_feed_retrieve_2
+      description: ViewSet to list the feed and retrieve the news post
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/follows/:
+    get:
+      operationId: api_v1_follows_retrieve
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: api_v1_follows_create
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          description: No response body
+  /api/v1/login/:
+    post:
+      operationId: api_v1_login_create
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '201':
+          description: No response body
+  /api/v1/login/{id}/:
+    get:
+      operationId: api_v1_login_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/v1/users/:
+    get:
+      operationId: api_v1_users_retrieve
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/v1/users/{id}/:
+    get:
+      operationId: api_v1_users_retrieve_2
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+components:
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"
