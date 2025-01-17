@@ -6,7 +6,7 @@ authors = ["Leonardo Zappi Ramos <leo.zappi@hotmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10.5"
 django-rest-framework = "^0.1.0"
 Django = "^5.0.6"
 django-filter = "^24.2"
