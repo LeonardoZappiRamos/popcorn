@@ -37,7 +37,7 @@ def token_expire_handler(token):
 class LoginViewset(ViewSet):
     permission_classes = [AllowAny]
 
-    def retrieve(self, request, pk=None):
+    def retrieve(self, request, pk: int = None):
         try:
             user = User.objects.get(pk=pk)
             if user:
@@ -70,12 +70,14 @@ class LoginViewset(ViewSet):
             if user:
                 token, _ = Token.objects.get_or_create(user=user)
                 is_expired, token = token_expire_handler(token)
-                return Response(
+                response = Response(
                     {
                         "token": [token.key],
+                        "user": user.id,
                         "expires": expires_in(token),
-                        "Sucsses": "Login SucssesFully",
+                        "message": "Login Successfully",
                     },
                     status=status.HTTP_201_CREATED,
                 )
-        return Response({"Massage": "Invalid Username and Password"}, status=401)
+                return response
+        return Response({"message": "Invalid Username and Password"}, status=401)

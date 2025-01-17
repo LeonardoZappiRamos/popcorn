@@ -13,7 +13,7 @@ class FeedViewSet(viewsets.ViewSet):
         serializer = PostSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def retrieve(self, request, pk=None):
+    def retrieve(self, request, pk: int = None):
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, pk=pk)
         serializer = PostSerializer(post)
