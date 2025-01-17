@@ -504,6 +504,12 @@ socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [metadata]
+<<<<<<< HEAD
 lock-version = "2.1"
 python-versions = "^3.10.5"
 content-hash = "840553bf177ef7348d9cd8402149815b38c60b5939e4cb28bcef2d06216813e4"
+=======
+lock-version = "2.0"
+python-versions = "^3.10"
+content-hash = "fb18a3e75990609af2c429b888a9af49500050f688c607d3cdbff97b17b5810d"
+>>>>>>> 6e3b862c94db03135efdad0854c434adacfb1697
