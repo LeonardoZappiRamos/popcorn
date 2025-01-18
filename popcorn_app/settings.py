@@ -105,10 +105,10 @@ tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": tmpPostgres.path.replace('/', ''),
-        "USER": tmpPostgres.username,
-        "PASSWORD": tmpPostgres.password,
-        "HOST": tmpPostgres.hostname,
+        "NAME": "popcorn",
+        "USER": "popcorn_owner",
+        "PASSWORD": "D7C9SByuYvNq",
+        "HOST": "ep-still-mode-a56pcqx7.us-east-2.aws.neon.tech",
         "PORT": 5432,
     }
 }
