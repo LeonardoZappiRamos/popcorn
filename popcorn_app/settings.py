@@ -99,6 +99,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
 tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
 DATABASES = {
