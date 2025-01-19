@@ -103,17 +103,21 @@ CORS_ALLOW_CREDENTIALS = True
 tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "popcorn",
-        "USER": "popcorn_owner",
-        "PASSWORD": "D7C9SByuYvNq",
-        "HOST": "ep-still-mode-a56pcqx7.us-east-2.aws.neon.tech",
-        "PORT": 5432,
-        "OPTIONS": {
-            "sslmode": "require"
-        },
-        # "DISABLE_SERVER_SIDE_CURSORS": True,
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": "popcorn",
+    #     "USER": "popcorn_owner",
+    #     "PASSWORD": "D7C9SByuYvNq",
+    #     "HOST": "ep-still-mode-a56pcqx7.us-east-2.aws.neon.tech",
+    #     "PORT": 5432,
+    #     "OPTIONS": {
+    #         "sslmode": "require"
+    #     },
+    #   "DISABLE_SERVER_SIDE_CURSORS": True,
+    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
     }
 }
 
