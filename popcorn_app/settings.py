@@ -110,7 +110,10 @@ DATABASES = {
         "PASSWORD": "D7C9SByuYvNq",
         "HOST": "ep-still-mode-a56pcqx7.us-east-2.aws.neon.tech",
         "PORT": 5432,
-        "OPTIONS": {"sslmode": "require"},
+        "OPTIONS": {
+            "sslmode": "require"
+        },
+        # "DISABLE_SERVER_SIDE_CURSORS": True,
     }
 }
 
