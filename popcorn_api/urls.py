@@ -11,6 +11,7 @@ router = routers.DefaultRouter()
 router.register(r"feed", viewsets.FeedViewSet, basename="feed")
 router.register(r"users", viewsets.UserViewSet, basename="users")
 router.register(r"follows", viewsets.SeguidorViewSet, basename="follows")
+router.register(r"login", viewsets.LoginViewset, basename="login")
 
 urlpatterns = [
     re_path("api/v1/", include(router.urls)),
