@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404
 from datetime import timedelta
 from django.utils import timezone
 from django.conf import settings
-from corsheaders.decorators import cors_allowed_origins
+# from corsheaders.decorators import cors_allowed_origins
 
 
 def expires_in(token):
