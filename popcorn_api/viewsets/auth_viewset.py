@@ -10,6 +10,7 @@ from django.shortcuts import get_object_or_404
 from datetime import timedelta
 from django.utils import timezone
 from django.conf import settings
+from corsheaders.decorators import cors_allowed_origins
 
 
 def expires_in(token):
@@ -34,6 +35,7 @@ def token_expire_handler(token):
     return is_expired, token
 
 
+# @cors_allowed_origins(['*'])
 class LoginViewset(ViewSet):
     permission_classes = [AllowAny]
 
