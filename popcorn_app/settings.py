@@ -35,6 +35,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
+    '191.248.36.254',
     'leozappi.pythonanywhere.com',
 ]
 

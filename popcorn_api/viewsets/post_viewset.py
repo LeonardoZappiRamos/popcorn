@@ -1,7 +1,7 @@
 from rest_framework import viewsets, status
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
-from popcorn_api.models import Post, Seguidor
+from popcorn_api.models import Post
 from popcorn_api.serializers import PostSerializer
 
 
