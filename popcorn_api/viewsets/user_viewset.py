@@ -1,5 +1,6 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.authentication import TokenAuthentication
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from django.contrib.auth.models import User
@@ -8,8 +9,10 @@ from rest_framework.decorators import action
 
 
 class UserViewSet(viewsets.ViewSet):
+    authentication_classes = [TokenAuthentication]
+
     def get_permissions(self):
-        elif self.action == "create_user":
+        if self.action == "create_user":
             permission_classes = [AllowAny]
         else:
             permission_classes = [IsAuthenticated]
