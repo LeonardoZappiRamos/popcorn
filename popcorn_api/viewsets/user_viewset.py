@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from django.contrib.auth.models import User
@@ -9,12 +9,10 @@ from rest_framework.decorators import action
 
 class UserViewSet(viewsets.ViewSet):
     def get_permissions(self):
-        if self.action == "list":
-            permission_classes = [IsAuthenticated]
-        elif self.action == "retrieve":
+        elif self.action == "create_user":
             permission_classes = [AllowAny]
         else:
-            permission_classes = [IsAdminUser]
+            permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
 
     def list(self, request):
