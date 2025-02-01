@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from popcorn_api.serializers import UserSerializer
+from rest_framework.decorators import action
 
 
 class UserViewSet(viewsets.ViewSet):
@@ -26,3 +27,17 @@ class UserViewSet(viewsets.ViewSet):
         user = get_object_or_404(queryset, pk=pk)
         serializer = UserSerializer(user)
         return Response(serializer.data)
+
+    @action(
+        detail=False,
+        methods=["POST"],
+        permission_classes=[AllowAny],
+        authentication_classes=[],
+    )
+    def create_user(self, request):
+        print("Chegou aqui.")
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            return Response(user, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
